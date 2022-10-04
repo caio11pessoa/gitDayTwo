@@ -1,7 +1,7 @@
 import UIKit
 
 class View: UIView {
-
+    private let nameLabel: UILabel = UILabel()
     private let button: UIButton = {
         let button = UIButton()
         button.setTitle("Title Button", for: .normal)
@@ -21,11 +21,20 @@ class View: UIView {
     }()
 
     override func layoutSubviews() {
+        
         super.layoutSubviews()
         backgroundColor = .systemBackground
         
         configView()
         setupConstraints()
+        nameLabel.text = "Conflito iminente"
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(nameLabel)
+
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
+            nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 30)
+        ])
     }
     
     private func configView() {
