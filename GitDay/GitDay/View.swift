@@ -2,12 +2,13 @@ import UIKit
 
 class View: UIView {
     private let nameLabel: UILabel = UILabel()
+    
     private let button: UIButton = {
         let button = UIButton()
         button.setTitle("Title Button", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemGray
-        button.layer.cornerRadius = 8
+        button.layer.cornerRadius = 16
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -15,6 +16,13 @@ class View: UIView {
     private let subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "subtitle"
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "title"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -40,6 +48,7 @@ class View: UIView {
     private func configView() {
         addSubview(button)
         addSubview(subtitleLabel)
+        addSubview(titleLabel)
     }
 
     private func setupConstraints() {
@@ -52,6 +61,11 @@ class View: UIView {
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16),
             subtitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 16),
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
     }
 }
