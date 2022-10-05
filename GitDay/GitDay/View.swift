@@ -5,7 +5,7 @@ class View: UIView {
     
     private let button: UIButton = {
         let button = UIButton()
-        button.setTitle("Title Button", for: .normal)
+        button.setTitle("Aqui um novo title", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.backgroundColor = .systemGray
         button.layer.cornerRadius = 16
@@ -15,14 +15,14 @@ class View: UIView {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "subtitle"
+        label.text = "Novo subtitle"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "title"
+        label.text = "Novo title"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
